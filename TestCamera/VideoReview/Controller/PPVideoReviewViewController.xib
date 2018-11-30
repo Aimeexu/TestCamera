@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad12_9" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PPVideoReviewViewController">
+            <connections>
+                <outlet property="cantPlayReasonLabel" destination="DQa-aj-ZAl" id="BYI-Ua-Yy9"/>
+                <outlet property="currentTimeLabel" destination="xnu-ml-ThB" id="BF8-5p-2ci"/>
+                <outlet property="playerView" destination="pqH-cE-BUB" id="D9u-ML-0A8"/>
+                <outlet property="progressConstraint" destination="tOC-2p-gUA" id="L7n-gG-lr7"/>
+                <outlet property="progressView" destination="yTL-eY-Rbs" id="OlQ-NF-gvP"/>
+                <outlet property="remainTimeLabel" destination="MRA-Zt-VES" id="NER-VS-FxO"/>
+                <outlet property="smallPlayButton" destination="9lh-RV-071" id="gCD-KX-1xZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="ReviewHitView">
+            <rect key="frame" x="0.0" y="0.0" width="494" height="1001"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="novideo" translatesAutoresizingMaskIntoConstraints="NO" id="VJi-ZD-jxp">
+                    <rect key="frame" x="127" y="441" width="240" height="119"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无法找到源文件~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQa-aj-ZAl">
+                    <rect key="frame" x="152" y="560" width="190" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="190" id="5Q6-LT-7U6"/>
+                        <constraint firstAttribute="height" constant="46" id="be4-EI-GQ6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqH-cE-BUB" customClass="JRPlayerView">
+                    <rect key="frame" x="0.0" y="0.0" width="494" height="1001"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnu-ml-ThB">
+                            <rect key="frame" x="51" y="958" width="39" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRA-Zt-VES">
+                            <rect key="frame" x="444" y="958" width="39" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lh-RV-071">
+                            <rect key="frame" x="0.0" y="941" width="60" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="1Ie-8i-B45"/>
+                                <constraint firstAttribute="width" constant="60" id="sdO-Fb-Wkq"/>
+                            </constraints>
+                            <state key="normal" image="播放"/>
+                            <state key="selected" image="暂停"/>
+                            <connections>
+                                <action selector="smallPlayButtonPressed:" destination="-1" eventType="touchUpInside" id="gKn-ZM-NVG"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstItem="9lh-RV-071" firstAttribute="leading" secondItem="pqH-cE-BUB" secondAttribute="leading" id="AmW-N7-ADE"/>
+                    </constraints>
+                </view>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yTL-eY-Rbs">
+                    <rect key="frame" x="98" y="961" width="338" height="11"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="3Gp-Vm-s0d"/>
+                    </constraints>
+                    <connections>
+                        <action selector="slidingEnded:" destination="-1" eventType="touchUpOutside" id="0dP-mB-ntn"/>
+                        <action selector="slidingEnded:" destination="-1" eventType="touchUpInside" id="4lj-k8-YgL"/>
+                        <action selector="slidingProgress:" destination="-1" eventType="valueChanged" id="gGz-ot-3Vd"/>
+                    </connections>
+                </slider>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="pqH-cE-BUB" secondAttribute="bottom" id="0Oi-ok-2ya"/>
+                <constraint firstItem="VJi-ZD-jxp" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="0yG-IO-dUb"/>
+                <constraint firstAttribute="trailing" secondItem="pqH-cE-BUB" secondAttribute="trailing" id="4SR-ul-0pk"/>
+                <constraint firstItem="DQa-aj-ZAl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4zc-Im-Pz1"/>
+                <constraint firstItem="xnu-ml-ThB" firstAttribute="centerY" secondItem="yTL-eY-Rbs" secondAttribute="centerY" id="A4J-8v-olJ"/>
+                <constraint firstItem="MRA-Zt-VES" firstAttribute="centerY" secondItem="yTL-eY-Rbs" secondAttribute="centerY" id="ENs-ix-eWW"/>
+                <constraint firstItem="yTL-eY-Rbs" firstAttribute="leading" secondItem="xnu-ml-ThB" secondAttribute="trailing" constant="10" id="Ehc-hE-m7o"/>
+                <constraint firstAttribute="bottom" secondItem="yTL-eY-Rbs" secondAttribute="bottom" constant="30" id="K4J-v8-Qmq"/>
+                <constraint firstItem="VJi-ZD-jxp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NaN-kC-nf0"/>
+                <constraint firstItem="9lh-RV-071" firstAttribute="centerY" secondItem="yTL-eY-Rbs" secondAttribute="centerY" id="bNb-Gg-VSj"/>
+                <constraint firstItem="MRA-Zt-VES" firstAttribute="leading" secondItem="yTL-eY-Rbs" secondAttribute="trailing" constant="10" id="cLF-ne-V1g"/>
+                <constraint firstAttribute="trailing" secondItem="yTL-eY-Rbs" secondAttribute="trailing" constant="60" id="d7C-OG-YqG"/>
+                <constraint firstItem="DQa-aj-ZAl" firstAttribute="top" secondItem="VJi-ZD-jxp" secondAttribute="bottom" id="dSk-e4-DgP"/>
+                <constraint firstItem="pqH-cE-BUB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="g4i-jT-sgP"/>
+                <constraint firstItem="yTL-eY-Rbs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="tOC-2p-gUA"/>
+                <constraint firstItem="pqH-cE-BUB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vEm-dv-4Tb"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="50" y="64.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="novideo" width="240" height="119"/>
+        <image name="播放" width="12" height="15"/>
+        <image name="暂停" width="12" height="15"/>
+    </resources>
+</document>

@@ -1,0 +1,36 @@
+//
+//  PrefixHeader.pch
+//  GTFundC
+//
+//  Created by xuj on 2017/10/23.
+//  Copyright © 2017年 ttd. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//宏定义
+#define SLBWINDOW ([UIApplication sharedApplication].keyWindow)
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define STSTUSBAR_HEIGHT ([[UIApplication sharedApplication] statusBarFrame].size.height)
+#define SCREEN_HEIGHT (([[UIApplication sharedApplication] statusBarFrame].size.height == 20 || [[UIApplication sharedApplication] statusBarFrame].size.height == 44) ? ([UIScreen mainScreen].bounds.size.height) : ([UIScreen mainScreen].bounds.size.height) - 20)
+
+#define BUTTON_HEIGHT (SCREEN_HEIGHT >= 812 ? 83 : 64)
+#define NAVIGATIONBAR_MAX_Y (((SCREEN_HEIGHT >= 812) || (SCREEN_HEIGHT == 792)) ? 88 : 64)
+
+
+#endif
+
+#ifdef __OBJC__
+
+#endif /* PrefixHeader_pch */
+
+#ifndef __OPTIMIZE__
+#define NSLog(...) NSLog(__VA_ARGS__)
+//#define NSLog(...) NSLog(@"%s:%d obj=%@", __func__, __LINE__, __VA_ARGS__)
+#else
+#define NSLog(...) {}
+#endif
